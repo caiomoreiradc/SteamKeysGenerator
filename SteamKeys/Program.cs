@@ -17,7 +17,7 @@ namespace SteamKeys
             Console.WriteLine("How many Keys do you want to generate? ");
             int qtdKeys = int.Parse(Console.ReadLine());
 
-            // Nome do arquivo onde as chaves serão salvas
+            // Nome do arquivo onde as keys serão salvas
             string fileName = "steamkeys.txt";
 
             // Cria um StreamWriter para o arquivo de saída
