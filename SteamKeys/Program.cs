@@ -5,6 +5,16 @@ namespace SteamKeys
 {
     internal class Program
     {
+        private static int InputQuantidade()
+        {
+            Console.WriteLine("Generate Steam Keys!!!!");
+            Console.WriteLine();
+
+            Console.Write("Inset how many keys you want to generate: ");
+            int qtdKeys = int.Parse(Console.ReadLine());
+            Console.WriteLine();
+            return qtdKeys;
+        }
         private static void SalvarArquivo(Random random, string chars, int keyLength, int qtdKeys, string fileName)
         {
             using (StreamWriter writer = new StreamWriter(fileName))
@@ -25,29 +35,26 @@ namespace SteamKeys
                 }
             }
         }
-        static void Main(string[] args)
+        private static void EscreverOutput(string fileName)
         {
-            Random random = new Random();
-            string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-            int keyLength = 15;
-
-            Console.WriteLine("Generate Steam Keys!!!!");
-            Console.WriteLine();
-
-            Console.Write("Inset how many keys you want to generate: ");
-            int qtdKeys = int.Parse(Console.ReadLine());
-            Console.WriteLine();
-
-            string fileName = "steamkeys.txt";
-
-            SalvarArquivo(random, chars, keyLength, qtdKeys, fileName);
-
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Keys saved to file: " + fileName);
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Press ENTER to exit");
             Console.ResetColor();
             Console.ReadKey();
+        }
+        static void Main(string[] args)
+        {
+            Random random = new Random();
+            string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            int keyLength = 15;
+            string fileName = "keys.txt";  
+            int qtdKeys = InputQuantidade();
+
+            SalvarArquivo(random, chars, keyLength, qtdKeys, fileName);
+
+            EscreverOutput(fileName);
         }
 
     }
