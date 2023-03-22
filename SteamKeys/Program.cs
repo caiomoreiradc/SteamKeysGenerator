@@ -16,7 +16,7 @@ namespace SteamKeys
             Console.WriteLine();
             return qtdKeys;
         }
-        private static void SalvarArquivo(Random random, string chars, int keyLength, int qtdKeys, string fileName)
+        private static void GeraSalvaKeys(Random random, string chars, int keyLength, int qtdKeys, string fileName)
         {
             using (StreamWriter writer = new StreamWriter(fileName))
             {
@@ -54,7 +54,7 @@ namespace SteamKeys
             string fileName = "keys.txt";  
             int qtdKeys = InputQuantidade();
 
-            SalvarArquivo(random, chars, keyLength, qtdKeys, fileName);
+            GeraSalvaKeys(random, chars, keyLength, qtdKeys, fileName);
 
             EscreverOutput(fileName);
         }
