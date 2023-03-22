@@ -5,6 +5,7 @@ namespace SteamKeys
 {
     internal class Program
     {
+
         private static int InputQuantidade()
         {
             Console.WriteLine("Generate Steam Keys!!!!");
@@ -46,6 +47,7 @@ namespace SteamKeys
         }
         static void Main(string[] args)
         {
+            Console.Title = "Steam Key Generator by https://github.com/caiomoreiradc/";
             Random random = new Random();
             string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
             int keyLength = 15;
