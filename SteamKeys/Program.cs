@@ -8,10 +8,28 @@ namespace SteamKeys
 
         private static int InputQuantidade()
         {
-            Console.WriteLine("Generate Steam Keys!!!!");
+            string title = @"
+  _____ _                         _  __              
+ / ____| |                       | |/ /              
+| (___ | |_ ___  __ _ _ __ ___   | ' / ___ _   _ ___ 
+ \___ \| __/ _ \/ _` | '_ ` _ \  |  < / _ \ | | / __|
+ ____) | ||  __/ (_| | | | | | | | . \  __/ |_| \__ \
+|_____/ \__\___|\__,_|_| |_| |_| |_|\_\___|\__, |___/
+                                            __/ |    
+                                           |___/     
+ _  _   ______ _____  ______ ______ 
+| || | |  ____|  __ \|  ____|  ____|
+| || |_| |__  | |__) | |__  | |__   
+|__   _|  __| |  _  /|  __| |  __|  
+   | | | |    | | \ \| |____| |____ 
+   |_| |_|    |_|  \_\______|______|
+                                    
+                                    
+";
+            Console.WriteLine(title, Console.ForegroundColor = ConsoleColor.Cyan);
             Console.WriteLine();
-
-            Console.Write("Inset how many keys you want to generate: ");
+            Console.ResetColor();
+            Console.Write("Insert how many keys you want to generate: ");
             int qtdKeys = int.Parse(Console.ReadLine());
             Console.WriteLine();
             return qtdKeys;
@@ -31,13 +49,14 @@ namespace SteamKeys
 
                     string key = new string(keyChars);
                     string formattedKey = string.Format("{0}-{1}-{2}", key.Substring(0, 5), key.Substring(5, 5), key.Substring(10, 5));
-
+                    Console.WriteLine(formattedKey, Console.ForegroundColor = ConsoleColor.Magenta);
                     writer.WriteLine(formattedKey);
                 }
             }
         }
         private static void EscreverOutput(string fileName)
         {
+            Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Keys saved to file: " + fileName);
             Console.ForegroundColor = ConsoleColor.Yellow;
